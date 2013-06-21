@@ -1,0 +1,9 @@
+This contains source code for a program, linearSat, that is part of a system to produce locally
+ordered sequence for centromeres and other highly repetitious "satellite" DNA sequences.  To
+make this simply type "make" in this directory.  The executable will be in the linearSat/linearSat
+file.
+
+The source code is in three directories.  The inc and lib directories contain a subset of the
+public domain UCSC Genome Bioinformatics group libraries,  just enough to support the main program
+in the linearSat directory.
+
