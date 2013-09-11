@@ -7,3 +7,34 @@ The source code is in three directories.  The inc and lib directories contain a 
 public domain UCSC Genome Bioinformatics group libraries,  just enough to support the main program
 in the linearSat directory.
 
+The linearSat program takes two input files and produces a single output.  There are sample input file
+included in the test portion of this directory. Here is a summary of the usage of the program,  a 
+summary which also appears when you run the program from the command line
+with no parameters:
+
+linearSat - create a linear projection of satellite arrays using the probablistic model
+of HuRef satellite graphs based on Sanger style reads.
+usage:
+   linearSat monomerFile.txt monomerOrder.txt output.txt
+Where monomerFile is a list of reads with monomers parsed out, one read per
+line, with the first word in the line being the read id and subsequent words the monomers
+within the read. The monomerOrder.txt has one line per major monomer type with a word for
+each variant. The lines are in the same order the monomers appear, with the last line
+being followed in order by the first since they repeat.   The output.txt contains one line
+for each monomer in the output, just containing the monomer symbol.
+options:
+   -size=N - Set max chain size, default 3
+   -fullOnly - Only output chains of size above
+   -chain=fileName - Write out word chain to file
+   -afterChain=fileName - Write out word chain after faux generation to file for debugging
+   -initialOutSize=N - Output this many words. Default 10000
+   -maxOutSize=N - Expand output up to this many words if not all monomers output initially
+   -maxToMiss=N - How many monomers may be missing from output. Default 0 
+   -pseudoCount=N - Add this number to observed quantities - helps compensate for what's not
+                observed.  Default 1
+   -seed=N - Initialize random number with this seed for consistent results, otherwise
+             it will generate different results each time it's run.
+   -betweens - Add <m> lines in output that indicate level of markov model used join
+   -unsubbed=fileName - Write output before substitution of missing monomers to file
+
+
